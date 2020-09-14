@@ -1,0 +1,30 @@
+---
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .Rmd
+      format_name: rmarkdown
+      format_version: '1.1'
+      jupytext_version: 1.1.7
+  kernelspec:
+    display_name: 'Python 3.7.0 64-bit (''3.7.0'': pyenv)'
+    language: python
+    name: python37064bit370pyenv81503a812bd341219633615bdad393a2
+---
+
+```{python}
+import pandas as pd
+```
+
+```{python}
+# Load data 
+train = pd.read_csv('../data/processed/segmented/train_clean_segmented.csv.gz', compression ='gzip')
+```
+
+```{python}
+train.head(40)
+```
+
+```{python}
+
+```
