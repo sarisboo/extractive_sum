@@ -16,7 +16,7 @@ def split_into_2_dfs(df):
 
 
 def split_sentences(text):
-    # Segment texts into sentences while keeping text ids
+    # Segment texts into sentences
     r_sentence_boundary = re.compile(r"\s?[.!?]\s?")
     return r_sentence_boundary.split(text)[:-1]
 
@@ -101,17 +101,17 @@ if __name__ == "__main__":
 
     # Save as pandas .csv.gz without index
     train_clean_segmented.to_csv(
-        "data/processed/segmented/train_clean_segmented.csv.gz",
+        "data/interim/segmented/train_clean_segmented.csv.gz",
         compression="gzip",
         index=False,
     )
     test_clean_segmented.to_csv(
-        "data/processed/segmented/test_clean_segmented.csv.gz",
+        "data/interim/segmented/test_clean_segmented.csv.gz",
         compression="gzip",
         index=False,
     )
     val_clean_segmented.to_csv(
-        "data/processed/segmented/val_clean_segmented.csv.gz",
+        "data/interim/segmented/val_clean_segmented.csv.gz",
         compression="gzip",
         index=False,
     )

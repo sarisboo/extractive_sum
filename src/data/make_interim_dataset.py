@@ -124,6 +124,12 @@ if __name__ == "__main__":
     cnn_dm_test.highlights = cnn_dm_test.highlights.apply(remove_newline)
 
     # Save cleaned data to compressed format in interim folder
-    cnn_dm_train.to_csv("data/interim/cnn_dm_train.csv.gz", compression="gzip")
-    cnn_dm_val.to_csv("data/interim/cnn_dm_val.csv.gz", compression="gzip")
-    cnn_dm_test.to_csv("data/interim/cnn_dm_test.csv.gz", compression="gzip")
+    cnn_dm_train.to_csv(
+        "data/interim/string_cleaning/cnn_dm_train.csv.gz", compression="gzip"
+    )
+    cnn_dm_val.to_csv(
+        "data/interim/string_cleaning/cnn_dm_val.csv.gz", compression="gzip"
+    )
+    cnn_dm_test.to_csv(
+        "data/interim/string_cleaning/cnn_dm_test.csv.gz", compression="gzip"
+    )
