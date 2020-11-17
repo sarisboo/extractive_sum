@@ -17,7 +17,9 @@ def split_into_2_dfs(df):
 
 def split_sentences(text):
     # Segment texts into sentences
-    r_sentence_boundary = re.compile(r"\s?[.!?]\s?")
+    r_sentence_boundary = re.compile(
+        r"\s?[.!?]\s?"
+    )  # Modify this to not include abbreviations and other exceptions
     return r_sentence_boundary.split(text)[:-1]
 
 
@@ -43,7 +45,7 @@ def tup_list_maker(tup_list):
 
 
 # Create a list of tuples containing in index0, text_id and in index 1 the list of sentences corresponding to this text
-def create_final_dataframe(df):
+def create_full_tuple(df):
     tuples = list(zip(df["text_id"], [sentence for sentence in df["sentences"]]))
     tup_list = tup_list_maker(tuples)
     # Converting the tuples list into a dataframe
@@ -69,8 +71,8 @@ def create_full_final_dataframe(df):
     df_highlights["sentences"] = df_highlights["highlights"].apply(
         lambda x: split_sentences(str(x))
     )
-    segmented_df_articles = create_final_dataframe(df_article)
-    segmented_df_highlights = create_final_dataframe(df_highlights)
+    segmented_df_articles = create_full_tuple(df_article)
+    segmented_df_highlights = create_full_tuple(df_highlights)
 
     # Create targets for dataframes
     segmented_df_articles["is_summary_sentence"] = 0
