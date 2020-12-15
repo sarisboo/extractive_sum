@@ -37,25 +37,26 @@ val_sparse_matrix = vectorizer.transform(corpus_val)
 if __name__ == "__main__":
     # save cropped dataset
     train.to_csv(
-        "data/cropped/train_cropped.csv.gz",
+        "src/features/cropped/train_cropped.csv.gz",
         compression="gzip",
         index=False,
     )
     # Save tfidf sparse matrix for each dataset
     sparse.save_npz(
-        "src/features/tf_idf_feature/train_sparse_matrix.npz", train_sparse_matrix
+        "src/features/cropped/tf_idf_feature/train_sparse_matrix.npz",
+        train_sparse_matrix,
     )
 
     sparse.save_npz(
-        "src/features/tf_idf_feature/test_sparse_matrix.npz", test_sparse_matrix
+        "src/features/cropped/tf_idf_feature/test_sparse_matrix.npz", test_sparse_matrix
     )
 
     sparse.save_npz(
-        "src/features/tf_idf_feature/val_sparse_matrix.npz", val_sparse_matrix
+        "src/features/cropped/tf_idf_feature/val_sparse_matrix.npz", val_sparse_matrix
     )
 
     # Pickle vectorizer
     pickle.dump(
         vectorizer,
-        open("src/features/tf_idf_feature/tfidf_vectorizer.pickle", "wb"),
+        open("src/features/cropped/tf_idf_feature/tfidf_vectorizer.pickle", "wb"),
     )
